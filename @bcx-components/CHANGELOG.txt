@@ -1,0 +1,129 @@
+# Proyecto @bcx-components ANGULAR V8
+
+1.0.0 - 20-01-2020 - AIC
+## add 
+    [bcx-banco]
+    - creación del componente bcx-banco
+
+1.1.0 - 2020-01-22 - AIC
+## add 
+    [bcx-banco]
+    - se agregó el bloqueo y desbloqueo del componente banco.
+
+1.1.1 - 2020-01-22 - AIC
+## change 
+    [bcx-banco]
+    - se modificó implementación del bloqueo y desbloqueo del componente banco.
+
+1.1.2 - 2020-01-27 - AIC
+## fix 
+    [bcx-banco]
+    - se agregó timeout en el router.navegate para EDGE.
+
+1.1.3 - 2020-01-27 - AIC
+## change 
+    [bcx-banco] 
+    - se modificó la busqueda de banco con el tabular.
+
+1.1.4 - 2020-01-27 - AIC
+## change 
+    [bcx-banco]
+    - se modificó implementación del bloqueo y desbloqueo del componente banco.
+
+1.2.0 - 2020-01-27 - AIC
+## change 
+    [bcx-banco]
+    - se corrige el componente banco para limpiar la descripcion del banco.
+    - se corrige la respuesta del error 500 del servicio de banco. 
+
+1.2.1 - 2020-01-27 - AIC
+## change 
+    [bcx-banco]
+    - se corrige parametro de deshabilitacion [isDisabled] del componente banco.
+
+1.3.0 - 2020-01-28 - AIC
+## add 
+    [bcx-banco]
+    - se agregó tabindex al componente banco.
+
+1.3.1 - 2020-01-28 - AIC
+## change 
+    [bcx-banco]
+    - se modificó campo descripcion para que se limpie cuando no encuentra resultado del banco.
+
+1.3.2 - 2020-01-29 - AIC
+## change 
+    [bcx-banco]
+    - se modificó filtro de tabla de consulta de banco.    
+
+1.4.0 - 2020-01-30 - AIC
+## add 
+    [bcx-banco]
+    - se agregó la class "hide-descripcion" para ocultar el campo descripción.
+    - se agregó la class "force-mdc-layout-grid" cuando el componente banco se encuentra en otro div "mdc-layout-grid__cell--span-n".
+## change
+    [bcx-banco]
+    - se modificó validación boton buscar, si el formulario es válido(true o false)
+
+1.4.1 - 2020-02-03 - AIC
+## change
+    [bcx-banco]
+    - se modificó input descripcion, cargaba el codigo del banco en la descripcion.
+
+1.4.2 - 2020-02-03 - AIC
+## change
+    [bcx-banco]
+    - se modificó input codigo de (change) a (ngModelChange).    
+
+1.4.3 - 2020-02-03 - AIC
+## change
+    [bcx-banco]
+    - se modificó input codigo reemplazando evento (ngModelChange) a (change).
+    - se modificó el método writeValue(), ejecutando servicio de busqueda de banco.  
+
+1.4.5 - 2020-02-07 - AIC
+## change
+    [bcx-banco]
+    - se modificó el metodo writeValue(value) agregando toUpperCase() al value.
+
+1.4.6 - 2020-02-07 - AIC
+## change
+    [bcx-banco]
+    - se modificó los colores de los botones de acción.
+
+1.4.7 - 2020-02-17 - AIC
+## change
+    [bcx-banco]
+    - se modificó los métodos ngOnInit(), writeValue() y processFault().
+
+1.5.0 - 2020-03-20 - AIC
+## add
+    [bcx-banco]
+    - se agregó el evento focus al codigo banco.
+    - se agregó error en codigo banco cuando es inválido.
+
+2.0.0 - 20200325 - AIC
+## add
+    [bcx-banco]
+    - se actualizo librerias para Ang 9.   
+
+2.1.0_20200422_AIC
+[bcx-banco]
+- se modificó componente para generar auto-ajuste de tamaño de los input - código banco.
+
+2.2.0_20200422_AIC
+[bcx-banco]
+- se agregó el evento focus al codigo banco y desde donde fue llamado parent.
+
+2.2.1_20200507_AIC
+[bcx-banco]
+- se agregó this.contextService al ingresar codigo banco.
+
+2.2.2_20200528_AIC
+[bcx-banco]
+- se modificó this.contextService al ingresar codigo banco.
+- se agregó que la variable global se genere dinamicamente de acuerdo por el FormControlName.  
+
+2.2.3_20200605_AIC
+[bcx-banco]
+- se modificó campo descripcion para que se limpie cuando no encuentra resultado del banco o de error el servicio.

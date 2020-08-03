@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FBPEngineEXPCEXANUANG": {
+    "demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/FBPEngineEXPCEXANUANG",
+            "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,10 +25,12 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/xml/configuration.xml"
             ],
             "styles": [
-              "src/styles.scss"
+              "@bcxang/css/cm-styles.scss",
+              "@bcxang/css/cm-cyan-app-theme.scss"
             ],
             "scripts": []
           },
@@ -66,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "FBPEngineEXPCEXANUANG:build"
+            "browserTarget": "demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "FBPEngineEXPCEXANUANG:build:production"
+              "browserTarget": "demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "FBPEngineEXPCEXANUANG:build"
+            "browserTarget": "demo:build"
           }
         },
         "test": {
@@ -114,15 +116,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "FBPEngineEXPCEXANUANG:serve"
+            "devServerTarget": "demo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "FBPEngineEXPCEXANUANG:serve:production"
+              "devServerTarget": "demo:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "FBPEngineEXPCEXANUANG"
+    }
+  },
+  "defaultProject": "demo",
+  "cli": {
+    "analytics": false
+  }
 }

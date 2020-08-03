@@ -1,0 +1,30 @@
+<div [formGroup]="form">
+	<div class="mdc-layout-grid {{class}}">
+		<div class="mdc-layout-grid__inner">
+			<!-- <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3" *ngIf="!hideDescription"> -->
+			<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{colSpan}}" *ngIf="hideDescription">
+				<mat-form-field style="width:{{widthCodigo}}%">
+					<input matInput #bcxBanco [tabindex]="tabindex" [placeholder]="placeholder" maxlength="11" formControlName="txtCodBanco" (change)="carga_codigo_banco_change()">		
+					<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+				</mat-form-field>
+				<button mat-icon-button (click)="btnConsulta_click()" matTooltip="Consulta bancos" style="margin: 0 13px;" [disabled]="isDisabled">				
+					<mat-icon>search</mat-icon>
+				</button>
+			</div>
+			<!-- <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8" *ngIf="hideDescription"> -->			
+			<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-{{colSpan}}" *ngIf="!hideDescription">
+				<mat-form-field style="width:{{widthCodigo}}%">
+					<input matInput #bcxBanco [tabindex]="tabindex" [placeholder]="placeholder" maxlength="11" formControlName="txtCodBanco" (change)="carga_codigo_banco_change()">		
+					<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+				</mat-form-field>
+				<button mat-icon-button (click)="btnConsulta_click()" matTooltip="Consulta bancos" style="margin: 0 13px;" [disabled]="isDisabled">				
+					<mat-icon>search</mat-icon>
+				</button>
+				<mat-form-field style="width: 58%">
+					<input matInput [placeholder]="placeholderDes" formControlName="txtDesBanco">
+					<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+				</mat-form-field>
+			</div>
+		</div>
+	</div>
+</div>

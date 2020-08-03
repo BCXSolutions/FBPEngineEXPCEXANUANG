@@ -1,0 +1,138 @@
+<!-- Generado por Xml2Ang, Bcx Solutions -->
+<!-- Fecha: 30/07/2020 18:34:13 -->
+<div class="cm-main">
+	<div class="cm-toolbar">
+		<mat-toolbar color="primary">
+			<span class="cm-title-text">Anular Cobranza al Exterior</span>
+			<span class="cm-title-spacer"></span>
+			<button tabindex="-1" type='button' mat-icon-button (click)="this.utilService.cmdHelp_click(this.dialog)"><mat-icon>help</mat-icon></button>
+		</mat-toolbar>
+	</div>
+
+	<form [formGroup]="form" autocomplete="off">
+		<div class="cm-botonera">
+			<button tabindex="11" type='button' mat-raised-button (click)="cmdComisiones_click()" [disabled]="cmdDisableComisiones.value"><mat-icon>attach_money</mat-icon>Comisiones</button>
+			<button tabindex="12" type='button' mat-raised-button (click)="cmdLimpiar_click()"><mat-icon>delete_sweep</mat-icon>Limpiar</button>
+			<button tabindex="13" type='button' mat-raised-button (click)="cmdCursar_click()" [disabled]="cmdDisableCursar.value" class="bcx-btn-accion"><mat-icon>check</mat-icon>Cursar</button>
+		</div>
+
+		<div class="inner-sidenav-content">
+			<div class="cm-border cm-left-pad cm-margin-top cm-margin-bottom cm-bottom-pad-small cm-right-pad">
+				
+				<div class="mdc-layout-grid"> <!--  fila 1 -->
+					<div class="mdc-layout-grid__inner">
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+							<mat-form-field>
+								<input tabindex="1" #txtNumeroOperacion matInput formControlName="txtNumeroOperacion" placeholder="Número operación" maxlength="16" [CmRestrict] (keydown.Tab)="ofunc_leer_operacion()">
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+							<mat-form-field>
+								<input tabindex="2" matInput formControlName="txtFechaOperacion" placeholder="Fecha ingreso" maxlength="16">
+							</mat-form-field>
+						</div>
+					</div>
+				</div> 
+				
+				<div class="mdc-layout-grid"> <!--  fila 2 -->
+					<div class="mdc-layout-grid__inner">
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1">
+							<mat-form-field>
+							<input tabindex="3" matInput formControlName="txtSucursalCliente" placeholder="Sucursal" maxlength="4" [CmRestrict]>
+							<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+							<mat-form-field>
+							<mat-select tabindex="-1" placeholder="Sucursal" formControlName="cbbSucursalCliente" class="cm-in-combo">
+								<mat-option *ngFor="let item of cbbSucursalClienteArray" [value]="item.fld_cod_prm">{{item.fld_des_prm}}</mat-option>
+							</mat-select>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1">
+							<mat-form-field>
+							<input tabindex="4" matInput formControlName="txtMoneda" placeholder="Moneda" maxlength="3" [CmRestrict]>
+							<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+							<mat-form-field>
+							<mat-select tabindex="-1" placeholder="Moneda" formControlName="cbbMoneda" class="cm-in-combo">
+								<mat-option *ngFor="let item of cbbMonedaArray" [value]="item.fld_cod_prm">{{item.fld_des_prm}}</mat-option>
+							</mat-select>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+				
+				<div class="mdc-layout-grid"> 
+					<div class="mdc-layout-grid__inner">
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+							<!--  BcxNumero -->
+							<bcx-numero [tabindex]="5" formControlName="bcxMontoMoneda" placeholder="Monto" maxlength="10" separador="true" decimales="2" mat-error="Valor Incorrecto"></bcx-numero>
+						</div>
+					</div>
+				</div> 
+			</div>
+				
+			<div class="cm-border cm-left-pad cm-margin-top cm-margin-bottom cm-bottom-pad-small cm-right-pad">
+				<div class="size_font_label" style="margin: 10px 0 5px 0;">Origen de fondo</div>
+
+				<div class="mdc-layout-grid">
+					<div class="mdc-layout-grid__inner">
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+							<mat-radio-group formControlName="optOrigen">
+								<mat-radio-button [tabIndex]="6" value="N">MN</mat-radio-button>
+								<mat-radio-button [tabIndex]="6" value="X">MX</mat-radio-button>
+							</mat-radio-group>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1">
+							<mat-form-field>
+								<input tabindex="7" #txtOrigenFondo matInput formControlName="txtOrigenFondo" placeholder="Origen Fondo" maxlength="3" [CmRestrict] (change)="fx_ctacteOpi('txtOrigenFondo')">
+								<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+							<mat-form-field>
+								<mat-select tabindex="-1" placeholder="Origen Fondo" formControlName="cbbOrigenFondo" class="cm-in-combo" (selectionChange)="fx_ctacteOpi('cbbOrigenFondo')">
+									<mat-option *ngFor="let item of cbbOrigenFondoArray" [value]="item.COD_DES">{{item.GLS_DES}}</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+							<mat-form-field>
+								<mat-select tabindex="8" placeholder="CuentaFondo" formControlName="cbbCuentaFondo" class="cm-in-combo">
+									<mat-option *ngFor="let item of cbbCuentaFondoArray" [value]="item.wss_cta_cod">{{item.wss_cta_gls}}</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+					</div>
+				</div>
+				
+				<div class="mdc-layout-grid"> 
+					<div class="mdc-layout-grid__inner">
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2"></div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1">
+							<mat-form-field>
+								<input tabindex="9" matInput formControlName="txtSucursalFondo" placeholder="Sucursal" maxlength="4" [CmRestrict]>
+								<mat-error class="cm-md-error">Dato Incorrecto</mat-error>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
+							<mat-form-field>
+								<mat-select tabindex="-1" placeholder="Sucursal" formControlName="cbbSucursalFondo" class="cm-in-combo">
+									<mat-option *ngFor="let item of cbbSucursalFondoArray" [value]="item.fld_cod_prm">{{item.fld_des_prm}}</mat-option>
+								</mat-select>
+							</mat-form-field>
+						</div>
+						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
+							<!--  BcxNumero -->
+							<bcx-numero [tabindex]="10" formControlName="bcxTipoCambio" placeholder="Tipo cambio" maxlength="16" separador="true" decimales="9" mat-error="Valor Incorrecto"></bcx-numero>
+						</div>
+					</div>
+				</div> 
+			</div>
+		</div>
+	</form>
+</div>
+<cm-wait [waitShow]="waitShow"></cm-wait>

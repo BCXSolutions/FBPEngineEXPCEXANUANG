@@ -1,0 +1,566 @@
+/* You can add global styles to this file, and also import other style files */
+/** @import '~material-design-lite/material.min.css';
+**/
+/** BLC, 6/12/2019: Agregamos clases para Bcx 
+*/
+@import "@material/layout-grid/mdc-layout-grid";
+/** datatable */
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+/** Self hosting material icons **/
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../iconfonts/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(../iconfonts/MaterialIcons-Regular.woff2) format('woff2'),
+      url(../iconfonts/MaterialIcons-Regular.woff) format('woff'),
+      url(../iconfonts/MaterialIcons-Regular.ttf) format('truetype');
+  }
+  /** Self hosting Roboto font (from google) **/
+  @font-face {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 400;
+      src: url(../fonts/Roboto-Regular.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: 400;
+    src: url(../fonts/Roboto-Italic.ttf) format('truetype');
+}
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    src: url(../fonts/Roboto-Thin.ttf) format('truetype');
+}
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: url(../fonts/Roboto-Medium.ttf) format('truetype');
+}
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 700;
+    src: url(../fonts/Roboto-Bold.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+body
+{
+    font-family: Roboto, Arial, sans-serif;
+    margin:0;
+    //tamaño por defecto para las fuentes de los campos.
+    font-size: 14px;
+}
+/** Definiciones propias BcxAng **/
+.cm-align-right
+{
+    text-align: right;
+}
+
+.cm-main
+{
+    /** El siguiente es el color de fondo suave **/
+   /** background: #a1dbff; **/
+   background: #e0f7fa;/** "cyan-50" **/
+    padding-bottom: 10px;
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*
+     overflow:hidden;
+     */
+     overflow:auto;
+     
+	 /** Agregado por BCX **/
+	 position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.cm-toolbar {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.cm-transparent {
+    background-color: transparent;
+}
+/**
+.cm-in-width
+{
+   width: 80px;
+}
+**/
+.cm-in-width-large
+{
+    width: 100%;
+}
+.cm-in-rut
+{
+    width: 90px!important;
+   
+}
+.cm-in-width-2
+{
+   /* Para los campos de entrada de los form */
+   width: 45%; 
+}
+.cm-float
+{
+    /* Para el wait */
+    position: absolute;
+    left: 50%;
+    top: 10%;
+}
+
+.cm-box-border
+{
+    border: 1px;
+    border-style: solid;
+}
+.cm-fixed-font
+{
+     font-family: "Courier New", Helvetica, sans-serif;
+     white-space:pre;
+}
+
+
+.cm-box-margin
+{
+    margin: 10px;
+
+    
+}
+.cm-float-right
+{
+    float: right;
+}
+.cm-left-margin
+{
+
+    margin-left: 20px;
+}
+.cm-left-margin-2
+{
+
+    margin-left: 60px;
+}
+.cm-border
+{
+   box-shadow:  0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+   border-radius: 2px;
+   transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+   will-change: box-shadow;
+   //se agrego margin por sidenav botonera
+   margin-left: 10px;
+   margin-right: 10px;
+   
+   background: #fff;
+   //se agrego padding en el card: top y bottom
+   padding: 5px 0 10px 0;
+}
+.cm-left-pad
+{
+    // se modifico el left del card
+    padding-left: 20px;
+}
+.cm-right-pad
+{
+    // se modifico el right del card
+    padding-right: 20px;
+}
+.cm-bottom-pad
+{
+    padding-bottom: 20px;
+}
+
+.cm-border-titulo
+{
+   
+    font-weight: bolder;
+    font-size: larger;
+}
+/* Hace que los input text disabled se vean mas oscuros */
+.cm-bolder 
+{
+     font-weight: bolder;
+  
+
+}
+.cm-title-spacer 
+{
+flex: 1 1 auto;
+}
+.cm-margin-top
+{
+    //ajuste general boton flotante
+    margin-top: 6px;
+}
+.cm-margin-bottom
+{
+    margin-bottom: 10px;
+}
+
+
+/** NGX DATATABLE **/
+.cm-datatable {
+    height: calc(50vh - 0px);
+}
+/** Para que quede centrado verticalmente los titulos de la tabla */
+.ngx-datatable.material .datatable-header .datatable-header-cell
+{
+    //se modifico tamaño de fuente y padding manteniendo el diseño del angular anterior.
+    padding: 0.3rem 1rem !important; 
+    font-size: 14px;
+    font-weight: 400;
+}
+
+// se agrego este estilo para el fondo de los titulos en la grilla y su altura.
+.ngx-datatable .datatable-header {
+    height: 30px !important;
+    background-color: #00838f!important;
+}
+
+/* Para los colores del header
+.datatable-header {  
+    background-color: #00838f!important;  
+}
+.datatable-header-cell {
+    color: white!important;
+}
+ **/
+ 
+.gridHeader
+{
+    background-color: #00838f!important;   
+    color: white!important;
+ 
+}
+
+/* Para que quede centrado el texto en la tabla. Con angular V7 
+IMPORTANTISIMO: Mantener la proporcion padding-top + paddin-bottom = 1.8rem
+*/
+.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell
+{
+    padding-top: 0;
+    padding-bottom: 1.8rem;
+}
+ 
+/** Fila seleccionada ** cyan-600  **/
+.ngx-datatable.material.single-selection .datatable-body-row.active,
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group 
+
+.ngx-datatable.material.cell-selection .datatable-body-cell.active,
+  .ngx-datatable.material.cell-selection .datatable-body-cell.active .datatable-row-group {
+    background-color: #00acc1!important; 
+    }
+
+/** Para que aparezca el cursor como mano en la fila de la grilla   **/ 
+.ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+    cursor: pointer }
+ 
+    /** Para esconder el paginamiento del extremo inferior derecho
+.datatable-pager
+{
+    visibility: hidden;
+}
+**/
+/** FIN NGX DATATABLE **/
+
+/* El label que va arriba de los input */
+.cm-larger-label .mat-input-placeholder-wrapper 
+{
+   font-size: larger; 
+}
+
+/* para agrandar el input en las pantallas readonly */
+.cm-larger-label .cm-in-width
+{
+   width: 100%;
+}
+/* mas oscuro el contenido de los input readonly */
+.cm-larger-label .mat-input-element 
+{
+    color: black;
+}
+
+/* Grilla MDL, le quitamos un poco de padding superior e inferior */
+/* No se usa 
+div.mdl-grid { 
+    padding-top:2px!important; 
+    padding-bottom:2px!important; 
+}  
+*/
+/** Le quitamos un poco al input angular*/
+/*div.mat-input-wrapper
+{
+    padding-bottom: 2px!important;
+    margin-bottom: 2px!important;
+}
+*/
+/** Le quitamos un poco al input angular 7. No funciona losiguiente.
+div.mat-form-field-wrapper
+{
+    padding-bottom: 10px!important;
+   
+}
+*/
+/* Para que se vean menos altos los input angular v7 **/
+/* NO se usa 
+@media (min-width: 840px)
+{
+.mdl-cell {
+    margin-top: 0px; 
+    margin-bottom: 0px;
+  
+}
+}
+**/
+
+/**
+ Para que las celdas de la grid no tengan margenes top bittom
+*/
+div.cm-no-margin-top-bottom
+{
+    margin-bottom: 0!important;
+    margin-top:0!important;
+}
+div.cm-no-margin-bottom
+{
+    margin-bottom: 0!important;
+}
+/**
+Achicamos el alto del titulo
+*/
+.mat-toolbar-row, .mat-toolbar
+{
+   
+    height: 40px!important;
+    min-height: 40px!important;
+}
+
+/** Si queremos cambiar el color del hover sobre las filas
+#grd .ngx-datatable.material:not(.cell-selection) .datatable-body-row:hover, #grd .datatable-body-row:hover .datatable-row-group {
+    background-color: #F00;
+    transition-property: background-color;
+	      transition-duration: .3s;
+	      transition-timing-function: linear;
+}
+*/
+.overflow
+{
+      overflow:hidden;
+}
+
+.cm-in-filter
+{
+    margin-top: -15px;
+    // modificacion de posicion input de la grilla. 
+    bottom: -18px;
+}
+.cm-botonera
+{
+    
+    padding-left: 0px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    //ajuste general boton flotante
+    margin-top: 15px;
+    
+    /*Se agrega margin-left 10px [DMO 20200107]*/
+    margin-left: 10px;
+    overflow:hidden;
+    /** Aca hay que modificar **/
+   /** background: #a1dbff; **/
+   background: #e0f7fa;/** "cyan-50" **/
+}
+.cm-in-combo
+{
+    width:100%;
+}
+.cm-in-descripcion
+{
+     width: 100%; 
+}
+/** Para alinear bien el md-select con el md-input de al lado */
+/*Mo necesario en V6 
+.mat-select {
+margin-top:5px!important;
+}
+*/
+.mat-select-trigger {
+    /** Para achicar el font del md-select  **/
+    font-size: 14px!important;
+}
+/* Para alinear (bajar) el placeholder del md-select */
+/* NO se usa 
+.mat-select-placeholder.mat-floating-placeholder {transform: scale(.75) translateY(12px) !important;}
+*/
+/** El tituo **/
+.cm-dialog-title
+{
+       background: #00838f; /*cyan 800*/;
+       color:white;
+       margin-top: -24px;
+       margin-left: -24px;
+       margin-right: -24px;
+      height:25px;
+      font-size:larger;     
+      padding:10px;
+}
+/** El mensaje en si. **/
+.cm-dialog-content
+{
+    margin-top: 20px!important;
+    font-size:larger;
+    font-weight: bolder;
+    text-align: center;
+}
+/** La botonera **/
+.cm-dialog-actions
+{
+    margin-top:30px!important;
+    text-align:center;
+}
+
+/** Help **/
+.cm-help-msg
+{
+    color:  #00838f; /*cyan 800*/;
+}
+.cm-help-copyright
+{
+    margin-top:35px;    
+}
+.cm-help-version
+{
+    margin-top:10px;    
+}
+
+.cm-help-module
+{
+    text-align:right;
+}
+
+/** Fin del dialog **/
+
+.cm-md-error
+{
+/**margin-top:14px!important; 
+**/
+    margin-top: inherit;
+}
+.max-alto
+{
+    height: 400px;
+    overflow: auto;
+}
+/* Espacio entre los elementos del form */
+.mdc-layout-grid {
+	padding:2px;
+}
+
+/** Lo siguiente fue agregado por BCX **/
+// DESTACA LOS CAMPOS DEBLOQUEADOS
+md-input-container.ng-valid .mat-input-placeholder {
+    color: rgba(0, 0, 0, 0.54)
+}
+md-input-container.ng-valid.mat-focused .mat-input-placeholder{
+    color: #00838f ;
+}
+
+md-input-container.ng-valid .mat-input-underline {
+    border-color: rgba(0, 0, 0, 0.54)
+}
+
+md-input-container.ng-invalid .mat-input-underline {
+    border-color: rgba(0, 0, 0, 0.54)
+}
+
+md-select.ng-valid .mat-select-placeholder{
+    color: rgba(0, 0, 0, 0.54)
+}
+md-select:focus .mat-select-placeholder{
+    color: #00838f ;
+}
+
+md-select.ng-valid .mat-select-underline {
+    background-color: rgba(0, 0, 0, 0.54)
+}
+
+md-select.ng-valid .mat-select-arrow {
+    color: rgba(0, 0, 0, 0.54)
+}
+
+md-select.mat-select-disabled .mat-select-placeholder {
+    color: rgba(0, 0, 0, 0.38);
+}
+
+// BOTONERA ESTATICA
+.inner-sidenav-content {
+    overflow: auto;
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    top:100px;
+  }
+
+.mat-sidenav-container {
+    background-color: #e0f7fa !important;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+md-sidenav-container {
+    height:100%;
+    width:100%;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+.cm-botonera button,
+.cm-botonera a {
+    margin-right: 5px;
+}  
+.cm-botonera button:last-child,
+.cm-botonera a:last-child {
+    margin-right: 0;  
+}

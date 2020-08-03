@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <flex_configuration>
+        <preferences>  
+            <webservice>       
+                <ruta>FBPEngineEXPGENGENRST</ruta>  
+            </webservice>
+            <acerca-de>  
+                <titulo>"Exportaciones - Cobranza al exterior - Anulación"</titulo>   
+                <version>2.0.0</version>  
+                <fecha>03/08/2020</fecha>  
+                <derechos>© 2017 - 2020 BCX Solutions Limitada</derechos>  
+                <nombreWar>FBPEngineEXPCEXANUANG</nombreWar>  
+            </acerca-de>  
+        </preferences>  
+    </flex_configuration>
