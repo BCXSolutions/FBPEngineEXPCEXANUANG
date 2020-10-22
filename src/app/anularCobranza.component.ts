@@ -127,7 +127,7 @@ export class AnularCobranzaComponent implements OnInit
 			}
 			else {
 				this.waitShow = true;
-				const subscription = interval(1000)
+				const subscription = interval(environment.production ? 1 : 1000)
 				.subscribe(() => {
 		
 					/* <BLOQUE PARA VALIDACION DE TOKEN>*/
