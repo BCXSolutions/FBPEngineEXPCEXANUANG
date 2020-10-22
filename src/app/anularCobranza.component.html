@@ -3,7 +3,7 @@
 <div class="cm-main">
 	<div class="cm-toolbar">
 		<mat-toolbar color="primary">
-			<span class="cm-title-text">Anular Cobranza al Exterior</span>
+			<span class="cm-title-text">Anular cobranza al exterior</span>
 			<span class="cm-title-spacer"></span>
 			<button tabindex="-1" type='button' mat-icon-button (click)="this.utilService.cmdHelp_click(this.dialog)"><mat-icon>help</mat-icon></button>
 		</mat-toolbar>
@@ -23,7 +23,7 @@
 					<div class="mdc-layout-grid__inner">
 						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
 							<mat-form-field>
-								<input tabindex="1" #txtNumeroOperacion matInput formControlName="txtNumeroOperacion" placeholder="Número operación" maxlength="16" [CmRestrict] (keydown.Tab)="ofunc_leer_operacion()">
+								<input tabindex="1" #txtNumeroOperacion matInput formControlName="txtNumeroOperacion" placeholder="Número operación" maxlength="16" [CmRestrict] (change)="ofunc_leer_operacion()">
 							</mat-form-field>
 						</div>
 						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2">
@@ -57,7 +57,7 @@
 						</div>
 						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
 							<mat-form-field>
-							<mat-select tabindex="-1" placeholder="Moneda" formControlName="cbbMoneda" class="cm-in-combo">
+							<mat-select tabindex="-1" placeholder="" formControlName="cbbMoneda" class="cm-in-combo">
 								<mat-option *ngFor="let item of cbbMonedaArray" [value]="item.fld_cod_prm">{{item.fld_des_prm}}</mat-option>
 							</mat-select>
 							</mat-form-field>
@@ -94,14 +94,14 @@
 						</div>
 						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
 							<mat-form-field>
-								<mat-select tabindex="-1" placeholder="Origen Fondo" formControlName="cbbOrigenFondo" class="cm-in-combo" (selectionChange)="fx_ctacteOpi('cbbOrigenFondo')">
+								<mat-select tabindex="-1" placeholder="" formControlName="cbbOrigenFondo" class="cm-in-combo" (selectionChange)="fx_ctacteOpi('cbbOrigenFondo')">
 									<mat-option *ngFor="let item of cbbOrigenFondoArray" [value]="item.COD_DES">{{item.GLS_DES}}</mat-option>
 								</mat-select>
 							</mat-form-field>
 						</div>
 						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
 							<mat-form-field>
-								<mat-select tabindex="8" placeholder="CuentaFondo" formControlName="cbbCuentaFondo" class="cm-in-combo">
+								<mat-select tabindex="8" placeholder="Cuenta fondo" formControlName="cbbCuentaFondo" class="cm-in-combo">
 									<mat-option *ngFor="let item of cbbCuentaFondoArray" [value]="item.wss_cta_cod">{{item.wss_cta_gls}}</mat-option>
 								</mat-select>
 							</mat-form-field>
@@ -120,7 +120,7 @@
 						</div>
 						<div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3">
 							<mat-form-field>
-								<mat-select tabindex="-1" placeholder="Sucursal" formControlName="cbbSucursalFondo" class="cm-in-combo">
+								<mat-select tabindex="-1" placeholder="" formControlName="cbbSucursalFondo" class="cm-in-combo">
 									<mat-option *ngFor="let item of cbbSucursalFondoArray" [value]="item.fld_cod_prm">{{item.fld_des_prm}}</mat-option>
 								</mat-select>
 							</mat-form-field>

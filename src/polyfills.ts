@@ -62,17 +62,3 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * APPLICATION IMPORTS
  */
 
-// Integra addition
-// IE 11 needs Object.entries, but that's not covered by Angular / webpack es2015-polyfills.js
-// import 'core-js/es7/object';
-
-// if (!Object.entries)
-//   Object.entries = function( obj ){
-//     var ownProps = Object.keys( obj ),
-//         i = ownProps.length,
-//         resArray = new Array(i); // preallocate the Array
-//     while (i--)
-//       resArray[i] = [ownProps[i], obj[ownProps[i]]];
-
-//     return resArray;
-//   };

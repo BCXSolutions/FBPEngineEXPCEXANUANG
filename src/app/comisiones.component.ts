@@ -37,17 +37,23 @@ export class ComisionesComponent implements OnInit {
 	 * Inicializamos todo.
 	 */
 	ngOnInit() {
-		
-		// let setNumOpe = this.route.snapshot.paramMap.get("numOpe");
+				
 		let random: number = Math.random() * 10000;
 		let token: string = this.hostService.getToken();
+		let usuario: string = this.hostService.getUsuario();
 		let host: string = this.hostService.getHost();
 		let numOpe: string = this.route.snapshot.params.numOpe;
 		let codIng: string = this.route.snapshot.params.codIng;
 		let codPro: string = this.route.snapshot.params.codPro;
 		let codEve: string = this.route.snapshot.params.codEve;
+		let ini: string = "";
 		
-		let ini: string = `?setNumOpe=${numOpe}&setCodIng=${codIng}&setCodPro=${codPro}&setCodEve=${codEve}&token=${token}&random=${random}`
+		if (this.hostService.getToken() != "") {
+			ini = `?setNumOpe=${numOpe}&setCodIng=${codIng}&setCodPro=${codPro}&setCodEve=${codEve}&token=${token}&ramdom=${random}`
+		} 
+		else {
+			ini = `?setNumOpe=${numOpe}&setCodIng=${codIng}&setCodPro=${codPro}&setCodEve=${codEve}&setUsuario=${usuario}&ramdom=${random}`
+		}
 
 		let src: string = `${host}/FBPEngineRST/FBPEngineAUXCOMANG/${ini}`
 		this.frame = `<iframe class="iframeStyle" frameborder='0' src='${src}'/>`;

@@ -1,4 +1,9 @@
 2.0.0_20200803_AIC
 - Versión inicial Ang 9
 
-
+2.0.1_20201022_AIC
+- se integro el ingreso de la aplicación por token o usuario.
+- se modificó el componente que llama al evento de Comisiones(FBPEngineAUXCOMANG).
+- se modificó el tiempo de intervalo para la validación del token.
+- se cambia la nomenclatura de los titulos.
+- se integró el rescate del parametro de entrada "password".

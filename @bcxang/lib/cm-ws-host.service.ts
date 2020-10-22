@@ -23,7 +23,6 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 @Injectable()
 export class CmWsHostService {
 
-
   private ruta: string = "";
   private rutaIni: string = "";
   public WS_STANDARD: number = 0;
@@ -36,7 +35,8 @@ export class CmWsHostService {
   private soapVersion: string = "";
   private host: string = "";
   private token: string = "";
-
+  private usuario: string = "";
+  private password: string = "";
 
   constructor(private http: HttpClient
     , private windowRefService: CmWindowRefService) { }
@@ -792,13 +792,34 @@ export class CmWsHostService {
     }
   }
   public getTokenUser(): string {
-    try {
-      const helper = new JwtHelperService();
-      const decodedToken = helper.decodeToken(this.getToken());
-      return decodedToken.sub;
-    } catch (error) {
-      return null;
+    if (this.getUsuario() != "") {
+      return this.getUsuario();
     }
+    else {
+      try {
+        const helper = new JwtHelperService();
+        const decodedToken = helper.decodeToken(this.getToken());
+        return decodedToken.sub;
+      } 
+      catch (error) {
+        return null;
+      }
+    }
+  }
+
+  //FIXME:
+  public setUsuario(usuario: string): void {
+    this.usuario = usuario;
+  }
+  public getUsuario(): string {
+    return this.usuario;
+  }
+
+  public setPassword(password: string): void {
+    this.password = password;
+  }
+  public getPassword(): string {
+    return this.password;
   }
 
 }

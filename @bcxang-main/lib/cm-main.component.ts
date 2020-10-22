@@ -66,43 +66,41 @@ export class CmMainComponent implements OnInit {
     });
    }
 
-  public ngOnInit() {
+   public ngOnInit() {
     // Cargamos la definicion
-
-    // this.main  = this.elm.nativeElement.getAttribute('main');
-   // los parametros , por ejemplo: ?usr=abc&pass=cde
-   let params: string = location.search;
+    let params: string = location.search;
 
    // creamos un arreglo con los parametros que vienen en le URL (por ejemplo, user y passwd)
 
-   let queryParams: any = this.parseQuery(params);
-   this.utilService.setQueryParams(queryParams);
-   let token :string = queryParams["token"];
-   // let token :string = this.route.snapshot.paramMap.get("userType")
-  
-     let errToken: string = "";
+    let queryParams: any = this.parseQuery(params);
+    this.utilService.setQueryParams(queryParams);
+    let token :string = queryParams["token"];
+    
+    let errToken: string = "";
+    
+    //FIXME: modo de transición
+    let userParam = queryParams["setUsuario"] == undefined ? 'CTOKEN' : queryParams["setUsuario"] == "" ? 'CTOKEN' : 'STOKEN'; 
    
-       
-       if (token != "" && typeof token != "undefined") {
-         // veamos si es un token valido
-         this.hostService.setToken(token);
-         if (!this.hostService.isValidToken()) {
-           errToken = "Token inválido.";
-         }
-       
-     } else
-           errToken = "Debe venir un token en la URL";
-       if (errToken.length > 0) {
-           // Nos vamos a la URL llamadora
-          /* const callerURL: string = this.hostService.getConfig("preferences/caller-url")
-             + "?error=" + errToken;
-
-           let w = this.windowRefService.nativeWindow;
-           w.location.href = callerURL;
-*/
-           this.router.navigate(['cm-error']);
-         }
- 
+    if (userParam == 'CTOKEN') {     
+      if (token != "" && typeof token != "undefined") {
+        // veamos si es un token valido
+        this.hostService.setToken(token);
+        if (!this.hostService.isValidToken()) {
+          errToken = "Token inválido.";
+        }       
+      } 
+      else {        
+        errToken = "Debe venir un token en la URL";
+      }
+    } 
+    else {
+      this.hostService.setUsuario(queryParams.setUsuario);
+      this.hostService.setPassword(queryParams.setPassword);
+    }
+           
+    if (errToken.length > 0) {
+      this.router.navigate(['cm-error']);
+    }
 
     this.hostService.defLoad("configuration.xml").subscribe(
       xml => this.procXml(xml),
@@ -110,6 +108,7 @@ export class CmMainComponent implements OnInit {
     );
 
   }
+
   /**
    * Obtenemos los parametros iniciales a partir del xml.
    */

@@ -1,7 +1,7 @@
 // Generado por Xml2Ang, Bcx Solutions 
 // Fecha: 30/07/2020 18:34:13
 import { AfterViewChecked, Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
-import { DateAdapter } from '@angular/material/core';
+// import { DateAdapter } from '@angular/material/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -24,6 +24,8 @@ import { FBP_RS_AUTH_SERVER } from '@bcxang/lib/ws/FBP_RS_AUTH_SERVER';
 import { CmRsDeleteService } from './rs/cm-rs-delete.service';
 import { CmRsGetService } from './rs/cm-rs-get.service';
 import { CmRsPostService } from './rs/cm-rs-post.service';
+
+import { environment } from '../environments/environment';
 
 @Component({
 	selector: 'anularCobranza',
@@ -79,6 +81,8 @@ export class AnularCobranzaComponent implements OnInit
 	cbbCuentaFondoArray: any[] = [];
 	cbbSucursalFondoArray: any[] = [];
 
+	user: any;
+
 	@ViewChild("txtNumeroOperacion") txtNumeroOperacionDom:ElementRef; 
 	@ViewChild("txtOrigenFondo") txtOrigenFondoDom:ElementRef; 
 
@@ -95,9 +99,8 @@ export class AnularCobranzaComponent implements OnInit
 		, private rsPostService: CmRsPostService
 		, private fbpRsAuthServer: FBP_RS_AUTH_SERVER
 		){
-
-			
 		}
+
 	/**
 	 * Inicializamos todo.
 	 */
@@ -110,22 +113,34 @@ export class AnularCobranzaComponent implements OnInit
 		this.valueChanges();
 		// Recuperamos el contexto.
 		const ctxSw :boolean = this.contextService.recover(this);
+		const queryParams: any = this.utilService.getQueryParams();
+
+		//FIXME:modo de transición 
+		this.user = queryParams["setUsuario"] == undefined ? '' : queryParams["setUsuario"];
+
 		if (!ctxSw)
 		{
-			this.waitShow = true;
-			const subscription = interval(1000)
-			.subscribe(() => {
-	
-				/* <BLOQUE PARA VALIDACION DE TOKEN>*/
-				this.fbpRsAuthServer.call(
-						(value) => this.fbpRsAuthServerResult(value)
-					, (value) => this.openDialogAlert(value)
-					,`Bearer ${this.hostService.getToken()}`
-				);
-				/* </BLOQUE PARA VALIDACION DE TOKEN>*/
-	
-				subscription.unsubscribe();
-			});
+			if (this.user  != '' ) {
+				setTimeout(() => {
+					this.init();
+				}, 1000)
+			}
+			else {
+				this.waitShow = true;
+				const subscription = interval(1000)
+				.subscribe(() => {
+		
+					/* <BLOQUE PARA VALIDACION DE TOKEN>*/
+					this.fbpRsAuthServer.call(
+							(value) => this.fbpRsAuthServerResult(value)
+						, (value) => this.openDialogAlert(value)
+						,`Bearer ${this.hostService.getToken()}`
+					);
+					/* </BLOQUE PARA VALIDACION DE TOKEN>*/
+		
+					subscription.unsubscribe();
+				});
+			}
 		}
 		else {
 			this.arregloInitial = this.contextService.getUserData("arregloInitial");
