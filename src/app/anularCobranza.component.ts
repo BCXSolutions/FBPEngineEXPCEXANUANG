@@ -25,8 +25,6 @@ import { CmRsDeleteService } from './rs/cm-rs-delete.service';
 import { CmRsGetService } from './rs/cm-rs-get.service';
 import { CmRsPostService } from './rs/cm-rs-post.service';
 
-import { environment } from '../environments/environment';
-
 @Component({
 	selector: 'anularCobranza',
 	templateUrl: 'anularCobranza.component.html'
@@ -127,7 +125,7 @@ export class AnularCobranzaComponent implements OnInit
 			}
 			else {
 				this.waitShow = true;
-				const subscription = interval(environment.production ? 1 : 1000)
+				const subscription = interval(1000)
 				.subscribe(() => {
 		
 					/* <BLOQUE PARA VALIDACION DE TOKEN>*/
@@ -359,6 +357,7 @@ export class AnularCobranzaComponent implements OnInit
 			, "wss_dir_cob": ""
 			, "wss_pai_cob": ""
 			, "wss_usercode": this.hostService.getTokenUser()
+			, "wss_userpss": this.hostService.getPassword()
 		};
 		 
 		// Activamos el simbolo de progress.

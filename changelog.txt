@@ -7,3 +7,6 @@
 - se modificó el tiempo de intervalo para la validación del token.
 - se cambia la nomenclatura de los titulos.
 - se integró el rescate del parametro de entrada "password".
+
+2.0.2_20201203_AIC
+- se modificó el tiempo de intervalo para la validación del token.

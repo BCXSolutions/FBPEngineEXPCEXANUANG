@@ -27,11 +27,9 @@
     "@ngrx/store": "^9.2.0",
     "@swimlane/ngx-datatable": "^17.1.0",
     "bcx-ang-lib": "file:C:/Temp/lib/bcx-ang-lib-0.0.6.tgz",
-    "classlist.js": "^1.1.20150312",
     "moment": "^2.27.0",
     "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
-    "web-animations-js": "^2.3.2",
     "xml-parser": "^1.2.1",
     "zone.js": "~0.10.2"
   },
