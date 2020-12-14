@@ -10,3 +10,6 @@
 
 2.0.2_20201203_AIC
 - se modificó el tiempo de intervalo para la validación del token.
+
+2.0.3_20201214_AIC
+- se cambio el color de la letra de los campos deshabilitados y los label.

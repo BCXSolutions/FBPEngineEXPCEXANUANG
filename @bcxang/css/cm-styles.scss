@@ -677,3 +677,16 @@ md-sidenav-container {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// AIC: 20201211 se cambio color de letra al campo deshabilitado y al label.
+.mat-input-element:disabled, .mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
+    color: rgba(0, 0, 0, 0.75) !important;
+}    
+
+.mat-radio-button.mat-radio-disabled .mat-radio-label-content {
+    color: rgba(0,0,0, 0.75) !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+    color: rgba(0, 0, 0, 0.75) !important;
+}
