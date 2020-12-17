@@ -534,33 +534,41 @@ export class AnularCobranzaComponent implements OnInit
 	 */
 	imprimir_doc_revisa() {
 		this.waitShow = true;
+		let urlImprimir: string = "";
 		let random: number = Math.random() * 10000;
 		let wss_cod_apl: string = 'DOCREV';
 		let fld_eva_num_ope: string = this.txtNumeroOperacion.value.replace(/^\s*|\s*$/g, '');
 		let fld_eva_num_doc_rev: string = '0';
 		let fld_eva_est_eve: string = '0';
 
-		this.url = this.hostService.getHost() + "/BCXGENPDF_WEB/generarPDF?"+
-				"wss_cod_apl=" + wss_cod_apl + 
-				"&fld_eva_num_ope=" + fld_eva_num_ope + 
-				"&fld_eva_num_doc_rev=" + fld_eva_num_doc_rev +
-				"&fld_eva_est_eve=" + fld_eva_est_eve +
-				"&random=" + random;
+		urlImprimir = this.hostService.getHost() + "/BCXGENPDF_WEB/generarPDF?"+
+			"wss_cod_apl=" + wss_cod_apl + 
+			"&fld_eva_num_ope=" + fld_eva_num_ope + 
+			"&fld_eva_num_doc_rev=" + fld_eva_num_doc_rev +
+			"&fld_eva_est_eve=" + fld_eva_est_eve +
+			"&random=" + random;
 
-    if (this.url.indexOf("http:") < 0) {
-			this.url = 'http://' +  this.url;
+		if(/msie\s|trident\/|edge\//i.test(window.navigator.userAgent)){
+
+			this.url = urlImprimir;
+
+			if (this.url.indexOf("http:") < 0) {
+				this.url = 'http://' +  this.url;
+			}
+			this.waitShow = false
 		}
-
-		return this.http.get(this.url, {responseType: 'blob'})			
-		.subscribe(blob => {
-			const a = document.createElement('a');
-			const objectUrl = URL.createObjectURL(blob);
-			a.href = objectUrl;
-			a.download = "revisa_" + fld_eva_num_ope;
-			a.click();
-			URL.revokeObjectURL(objectUrl);
-			this.waitShow = false;
-		})
+		else {
+			return this.http.get(urlImprimir, {responseType: 'blob'})      
+			.subscribe(blob => {
+				const a = document.createElement('a');
+				const objectUrl = URL.createObjectURL(blob);
+				a.href = objectUrl;
+				a.download = "revisa_" + fld_eva_num_ope;
+				a.click();
+				URL.revokeObjectURL(objectUrl);
+				this.waitShow = false;	
+			})
+		}
  
 	}
 

@@ -16,6 +16,11 @@
 			<button tabindex="13" type='button' mat-raised-button (click)="cmdCursar_click()" [disabled]="cmdDisableCursar.value" class="bcx-btn-accion"><mat-icon>check</mat-icon>Cursar</button>
 		</div>
 
+
+		<!-- Iframe Imprimir PDF -->
+		<iframe id="frame" frameborder="0" [src]='url | safe' style="display: none"></iframe> 
+		<!-- Fin Iframe Imprimir PDF -->
+
 		<div class="inner-sidenav-content">
 			<div class="cm-border cm-left-pad cm-margin-top cm-margin-bottom cm-bottom-pad-small cm-right-pad">
 				

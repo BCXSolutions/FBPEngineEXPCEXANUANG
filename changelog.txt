@@ -13,3 +13,6 @@
 
 2.0.3_20201214_AIC
 - se cambio el color de la letra de los campos deshabilitados y los label.
+
+2.0.4_20201217_AIC
+- se modificó el metodo de documento revisa.

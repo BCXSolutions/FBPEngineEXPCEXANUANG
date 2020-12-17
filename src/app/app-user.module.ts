@@ -8,6 +8,7 @@ import { BcxBancoModule } from '@bcx-components';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 import { SafeHtmlComPipe, ComisionesComponent } from './comisiones.component';
+import { SafePipe } from './safe.pipe';
 
 /**  
  * Lista Componentes (paginas). Reemplazar por las propias.    
@@ -31,6 +32,7 @@ import { AnularCobranzaComponent } from './anularCobranza.component';
     , AnularCobranzaComponent   
     , ComisionesComponent 
     , SafeHtmlComPipe
+    , SafePipe
   ],  
   exports: [CmSharedModule],  
   bootstrap: [CmMainComponent],  
