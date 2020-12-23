@@ -66,7 +66,7 @@ export class AnularCobranzaComponent implements OnInit
 	varCodigoOri: string = "";
 	url: string;
 
-	arregloInitial: any[] = [];
+	// arregloInitial: any[] = [];
 
 	// Activa o desactiva el progress.
 	waitShow: boolean;
@@ -141,7 +141,7 @@ export class AnularCobranzaComponent implements OnInit
 			}
 		}
 		else {
-			this.arregloInitial = this.contextService.getUserData("arregloInitial");
+			// this.arregloInitial = this.contextService.getUserData("arregloInitial");
 		}
 
 		// Validadores de Combo-Texto.
@@ -150,8 +150,8 @@ export class AnularCobranzaComponent implements OnInit
 
 	init () {
 
-		this.saveformInitial();
-		this.contextService.setUserData("arregloInitial", this.arregloInitial);
+		// this.saveformInitial();
+		// this.contextService.setUserData("arregloInitial", this.arregloInitial);
 		
 		// Combos llenados al inicio.
 		this.waitShow = true;
@@ -194,11 +194,11 @@ export class AnularCobranzaComponent implements OnInit
 		}
 	}
 
-	saveformInitial():void {				
-		Object.entries(this.form.controls).forEach( obj =>    
-		  this.arregloInitial.push({ name: obj[0], value: obj[1].value})
-		);
-	}
+	// saveformInitial():void {				
+	// 	Object.entries(this.form.controls).forEach( obj =>    
+	// 	  this.arregloInitial.push({ name: obj[0], value: obj[1].value})
+	// 	);
+	// }
 
 	/**
    * Recibe una fecha (dd/mm/yyyy) de tipo string. Devuelve yyyy-mm-dd
@@ -507,11 +507,34 @@ export class AnularCobranzaComponent implements OnInit
 	 */
 	cmdLimpiar_click(): void
 	{
-				
-		this.arregloInitial.forEach(key => {
-			this.form.controls[key.name].setErrors(null);
-			this[key.name].patchValue(key.value)
-		})
+
+		// this.arregloInitial.forEach(key => {
+		// 	this.form.controls[key.name].setErrors(null);
+		// 	this[key.name].patchValue(key.value)
+		// })
+
+
+		this.txtNumeroOperacion.patchValue("");
+		this.txtFechaOperacion.patchValue("");
+		this.txtSucursalCliente.patchValue("");
+		this.cbbSucursalCliente.patchValue("");
+		this.txtMoneda.patchValue("");
+		this.cbbMoneda.patchValue("");
+		this.bcxMontoMoneda.patchValue("0,00");
+		this.optOrigen.patchValue("N");
+		this.txtOrigenFondo.patchValue("");
+		this.cbbOrigenFondo.patchValue("");
+		this.cbbCuentaFondo.patchValue("");
+		this.txtSucursalFondo.patchValue("");
+		this.cbbSucursalFondo.patchValue("");
+		this.bcxTipoCambio.patchValue("0,000000000");
+
+		//General
+		this.varRutCliente.patchValue("");
+
+		//Botones
+		this.cmdDisableComisiones.patchValue(true);
+		this.cmdDisableCursar.patchValue(true);
 
 		this.ofunc_habilitar_control(false);
 

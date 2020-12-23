@@ -16,3 +16,6 @@
 
 2.0.4_20201217_AIC
 - se modificó el metodo de documento revisa.
+
+2.0.5_20201223_AIC
+- se modificó el metodo "cmdLimpiar_click" de limpiar formulario.
