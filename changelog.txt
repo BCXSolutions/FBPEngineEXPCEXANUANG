@@ -19,3 +19,6 @@
 
 2.0.5_20201223_AIC
 - se modificó el metodo "cmdLimpiar_click" de limpiar formulario.
+
+2.0.6_20210126_PRA
+- se solucionó problema que no enviaba el número de operación correctamente al servicio de curse.

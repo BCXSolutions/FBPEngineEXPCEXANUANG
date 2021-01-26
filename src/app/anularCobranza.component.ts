@@ -296,7 +296,7 @@ export class AnularCobranzaComponent implements OnInit
 		/* Mover los datos de la pantalla a los parametros del Rest Service. */ 
 		const data:any = {
 				"wss_cod_acc": "A"
-			, "wss_num_opr": this.txtNumeroOperacion.value
+			, "wss_opr_num": this.txtNumeroOperacion.value
 			, "wss_tip_cex": ""
 			, "wss_suc_ing": "0"
 			, "wss_cod_exp": ""
